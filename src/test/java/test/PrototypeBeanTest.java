@@ -23,6 +23,7 @@ public class PrototypeBeanTest {
         SingletonSpringService springService = context.getBean(SingletonSpringService.class);
         PrototypeBean prototypeBean1 = springService.getPrototypeBean();
         PrototypeBean prototypeBean2 = springService.getPrototypeBean();
+        PrototypeBean prototypeBean3 = context.getBean(PrototypeBean.class);
 
         System.out.println(prototypeBean1);
         System.out.println(prototypeBean2);
@@ -30,5 +31,6 @@ public class PrototypeBeanTest {
         assertNotNull(prototypeBean1);
         assertNotNull(prototypeBean2);
         assertFalse(prototypeBean1 == prototypeBean2);
+        assertFalse(prototypeBean2 == prototypeBean3);
     }
 }
